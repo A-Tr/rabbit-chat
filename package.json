@@ -1,0 +1,14 @@
+{
+  "name": "rabbit_chat",
+  "version": "1.0.0",
+  "description": "Simple client to use Chat API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
