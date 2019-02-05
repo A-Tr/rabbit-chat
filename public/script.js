@@ -1,32 +1,47 @@
-import {$,jQuery} from 'jquery';
-// export for others scripts to use
-window.$ = $;
-window.jQuery = jQuery;
+$('#chatFormNode').on('submit', e => {
+  e.preventDefault()
 
-$('#chatForm').on('submit', function(e) {
-	e.preventDefault()
-
-	const form = $('#chatForm').serializeArray()
-	const JSONdata = getFormData(form)
-
-	$.ajax({
-		type: 'POST',
-		url: 'http:localhost:3000/api/chat',
-		processData: false,
-		data: JSONdata,
-		success: function(response) {
-			alert(JSON.stringify(response))
-		}
-	})
+  let data = {
+    Name: $('#name').val(),
+    Message: $('#message').val()
+  }
+  data = JSON.stringify(data)
+  $.ajax({
+    type: 'POST',
+    url: 'http://localhost:3000/api/chat',
+    contentType: 'application/json',
+    data,
+    error: err => {
+      alert(`Could not connect to chat. Error: ${JSON.stringify(err)}`)
+    },
+    success: res => {
+      alert(res)
+    }
+  })
 })
 
-function getFormData($form){
-	let unindexed_array = $form.serializeArray()
-	let indexed_array = {}
+$('#chatFormGo').on('submit', e => {
+  e.preventDefault()
 
-	$.map(unindexed_array, function(n, i){
-		indexed_array[n['name']] = n['value']
-	})
+  const data = {
+    Name: $('#name').val(),
+    Message: $('#message').val()
+  }
 
-	return indexed_array
-}
+  $.ajax({
+    type: 'POST',
+    url: 'http://localhost:3001/api/chat',
+    processData: false,
+    data: data,
+    error: err => {
+      alert(`Could not connect to chat. Error: ${JSON.stringify(err)}`)
+    }
+  })
+})
+
+new Vue({
+  el: '#vueThing',
+  data: {
+    greeting: 'Hello Vue.js!'
+  }
+})

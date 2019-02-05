@@ -23,13 +23,36 @@
 
   <div class="container">
     <div class="row">
-
-      <div class="col-lg-5 col-lg-offset-3">
+      <div class="col-lg-2">
+        <div id="vueThing ">
+          {{ greeting }}
+        </div>
+      </div>
+      <div class="col-lg-5">
         <div class="chat-feed">
           <!-- chat feed -->
         </div>
+        <h2>Node CHAT</h2>
+        <form id="chatFormNode" method="post">
+          <div class="form-group top-margin">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Your Chat Name">
+          </div>
 
-        <form id="chatForm" method="post">
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea class="form-control" id="message" rows="3"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Chat</button>
+        </form>
+      </div>
+      <div class="col-lg-5">
+        <div class="chat-feed">
+          <!-- chat feed -->
+        </div>
+        <h2>Go CHAT</h2>
+        <form id="chatFormGo" method="post">
           <div class="form-group top-margin">
             <label for="name">Name</label>
             <input type="text" class="form-control" id="name" placeholder="Your Chat Name">
@@ -45,10 +68,8 @@
       </div>
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-2.2.1.min.js"
-    integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
-    crossorigin="anonymous"></script>
-
-  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/vue/1.0.28/vue.min.js"></script>
+  <script src="../lib/jquery-3.1.1.min.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>
